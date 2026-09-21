@@ -1,12 +1,9 @@
-
-from blog.operaciones import listar_posts, buscar_por_titulo, filtrar_por_tag
-from blog.validaciones import validar_post
 from blog.menu import mostrar_menu
-from blog.datos import posts
+from blog.modelos import Blog
 
 
-def menu():
-    """Mantiene el menú interactivo activo y despacha a las funciones correspondientes."""
+def menu(blog):
+    """Mantiene el menú interactivo activo y despacha a los métodos correspondientes de Blog."""
     while True:
         opcion = mostrar_menu()
 
@@ -15,43 +12,49 @@ def menu():
 
         if opcion == 1:
             print("\nPosts disponibles:")
-            listar_posts(posts)
+            blog.listar_posts()
 
         elif opcion == 2:
             termino = input("Buscar por titulo: ")
-            resultados = buscar_por_titulo(posts, termino)
+            resultados = blog.buscar_por_titulo(termino)
             if resultados:
                 print(f"\nResultados encontrados ({len(resultados)}):")
                 for post in resultados:
-                    print(f"- {post.get('titulo')}")
+                    nombre_autor = post.autor.nombre if hasattr(post.autor, "nombre") else str(post.autor)
+                    print(f"- {post.titulo} (Autor: {nombre_autor})")
             else:
                 print(f"No se encontraron posts que contengan '{termino}'.")
 
         elif opcion == 3:
             tag = input("Ingresa un tag: ")
-            resultados = filtrar_por_tag(posts, tag)
+            resultados = blog.filtrar_por_tag(tag)
             if resultados:
                 print(f"\nPosts con el tag '{tag}' ({len(resultados)}):")
                 for post in resultados:
-                    print(f"- {post.get('titulo')}")
+                    print(f"- {post.titulo} [Tags: {', '.join(post.tags)}]")
             else:
                 print(f"No se encontraron posts con el tag '{tag}'.")
 
         elif opcion == 4:
-            print("\n--- VALIDACIÓN DE POSTS ---")
-            for post in posts:
-                es_valido = validar_post(post)
-                if not es_valido:
-                    print(f"-> Post con errores: {post}")
-                print("-" * 35)
+            print("\n--- CREAR NUEVO POST ---")
+            blog.crear_post()
 
         elif opcion == 5:
-            print("Gracias por usar el sistema del blog. ¡Hasta luego!")
+            print("\n--- VALIDACIÓN DE POSTS ---")
+            blog.validar_posts()
+
+        elif opcion == 6:
+            print("\n--- GUARDAR POSTS EN JSON ---")
+            blog.guardar_en_json()
+
+        elif opcion == 7:
+            print("\nGracias por usar el sistema del blog. ¡Hasta luego!")
             break
 
         else:
-            print("Opción inválida, intenta de nuevo")
+            print("Opción inválida, intenta de nuevo.")
 
 
 if __name__ == "__main__":
-    menu()
+    blog = Blog()
+    menu(blog)
