@@ -6,18 +6,10 @@ from unittest.mock import patch
 # Asegura que el directorio raíz del proyecto esté en sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from sistema_blog import (
-    perfil_autor,
-    estados_post,
-    etiquetas_blog,
-    posts,
-    validar_post,
-    listar_posts,
-    listar_post,
-    buscar_por_titulo,
-    filtrar_por_tag,
-    mostrar_menu
-)
+from blog.datos import perfil_autor, estados_post, etiquetas_blog, posts
+from blog.validaciones import validar_post
+from blog.operaciones import listar_posts, listar_post, buscar_por_titulo, filtrar_por_tag
+from blog.menu import mostrar_menu
 
 
 class TestValidarPost(unittest.TestCase):
