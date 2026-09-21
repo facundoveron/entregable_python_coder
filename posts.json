@@ -1,0 +1,76 @@
+[
+    {
+        "id": 1,
+        "titulo": "Primeros pasos con Python",
+        "contenido": "Aprende los conceptos básicos de sintaxis, variables y estructuras de control.",
+        "autor": {
+            "nombre": "Ana López",
+            "bio": "Desarrolladora web y creadora de contenido sobre programación.",
+            "especialidad": "Python y Django",
+            "redes_sociales": [
+                "@ana_dev",
+                "@ana_python"
+            ]
+        },
+        "tags": [
+            "Python",
+            "Principiantes"
+        ],
+        "estado": "publicado"
+    },
+    {
+        "id": 2,
+        "titulo": "Qué es Django y cómo empezar",
+        "contenido": "Una introducción al framework web más popular para Python.",
+        "autor": {
+            "nombre": "Ana López",
+            "bio": "Desarrolladora web y creadora de contenido sobre programación.",
+            "especialidad": "Python y Django",
+            "redes_sociales": [
+                "@ana_dev",
+                "@ana_python"
+            ]
+        },
+        "tags": [
+            "Python",
+            "Django",
+            "Web"
+        ],
+        "estado": "publicado"
+    },
+    {
+        "id": 3,
+        "titulo": "Organizando datos con listas",
+        "contenido": "Guía práctica sobre el uso de listas, métodos comunes y mejores prácticas.",
+        "autor": {
+            "nombre": "Ana López",
+            "bio": "Desarrolladora web y creadora de contenido sobre programación.",
+            "especialidad": "Python y Django",
+            "redes_sociales": [
+                "@ana_dev",
+                "@ana_python"
+            ]
+        },
+        "tags": [
+            "Python",
+            "Listas"
+        ],
+        "estado": "borrador"
+    },
+    {
+        "id": "4",
+        "titulo": "Introduccion a Funciones",
+        "contenido": "Todo sobre funciones def y lambda",
+        "autor": {
+            "nombre": "Ana Lopez",
+            "bio": "",
+            "especialidad": "",
+            "redes_sociales": []
+        },
+        "tags": [
+            "Python",
+            "Backend"
+        ],
+        "estado": "publicado"
+    }
+]
